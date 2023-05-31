@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PedidosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('pedidos')->group(function(){
+    Route::controller(PedidosController::class)->group(function () {
+        Route::get('all', 'getPedidos');
+        Route::get('detail/{id}', 'getPedidoById');
+        // Route::post('new', 'store');
+        // Route::put('update/{id}', 'update');
+        // Route::delete('delete/{id}', 'destroy');
+    });
 });

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->bigInteger('num_pedido')->unique();
             $table->bigInteger('nit')->unsigned();
             $table->foreign('nit')->references('id')->on('terceros');
-            $table->string('razon_social', 30);
+            $table->string('razon_social', 50);
             $table->string('vendedor', 50);
-            $table->string('departamento', 30);
-            $table->string('ciudad', 30);
+            $table->string('departamento', 100);
+            $table->string('ciudad', 100);
             $table->timestamps();
         });
     }

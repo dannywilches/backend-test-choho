@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('nit')->unsigned();
             $table->foreign('nit')->references('id')->on('terceros');
-            $table->string('telefono', 10);
-            $table->string('direccion', 30);
-            $table->string('departamento', 30);
-            $table->string('ciudad', 30);
+            $table->string('telefono', 20);
+            $table->string('direccion', 100);
+            $table->string('departamento', 100);
+            $table->string('ciudad', 100);
             $table->timestamps();
         });
     }
