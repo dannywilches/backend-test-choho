@@ -24,4 +24,9 @@ class Pedidos extends Model
     public function getDetallePedidos() {
         return $this->hasMany(DetallesPedidos::class, 'num_pedido', 'id');
     }
+
+    public function getTercero() {
+        return $this->belongsTo(Terceros::class, 'nit', 'id');
+    }
+
 }

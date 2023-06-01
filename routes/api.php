@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidosController;
+use App\Http\Controllers\TercerosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,14 @@ Route::prefix('pedidos')->group(function(){
     Route::controller(PedidosController::class)->group(function () {
         Route::get('all', 'getPedidos');
         Route::get('detail/{id}', 'getPedidoById');
-        // Route::post('new', 'store');
-        // Route::put('update/{id}', 'update');
-        // Route::delete('delete/{id}', 'destroy');
+        Route::post('new', 'registroPedido');
+    });
+});
+
+Route::prefix('terceros')->group(function(){
+    Route::controller(TercerosController::class)->group(function () {
+        Route::get('all', 'getTerceros');
+        Route::get('detail/{id}', 'getTerceroById');
+        Route::post('new', 'registroTercero');
     });
 });
