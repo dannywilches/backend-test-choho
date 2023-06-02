@@ -16,6 +16,9 @@ use App\Http\Controllers\TercerosController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('register', 'register');
@@ -23,9 +26,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
     Route::post('me', 'me');
-});
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
 });
 
 Route::middleware('jwt.verify')->group(function () {
