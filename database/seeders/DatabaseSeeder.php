@@ -18,9 +18,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\Pedidos::factory(10)->create();
         \App\Models\DetallesPedidos::factory(50)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test Prueba',
+            'email' => 'test@example.com',
+            'password' => 'Test123',
+        ]);
     }
 }
